@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE window>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<dialog xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" buttons="extra1,accept,cancel" ondialogextra1="growlnotifyOptionsNotify()" buttonaccesskeyextra1="T" buttonlabelextra1="Test" ondialogaccept="return growlnotifyOptionsAccept();" title="Growl New Message Notification">
+	<script type="application/x-javascript" src="chrome://growlnotify/content/growlcommand.js" />
+	<script type="application/x-javascript" src="chrome://growlnotify/content/growloptions.js" />
+	<groupbox style="width: 300px">
+		<label value="Title:" />
+		<textbox id="growlnotifytitle" />
+		<label value="Message:" />
+		<textbox id="growlnotifymessage" multiline="true" />
+		<hbox>
+			<hbox flex="1">
+				<vbox>
+					<label>%s</label>
+					<label>%a</label>
+					<label>%r</label>
+					<label>%c</label>
+					<label>%d</label>
+					<label>%f</label>
+					<label>%v</label>
+				</vbox>
+				<vbox>
+					<label>subject</label>
+					<label>author</label>
+					<label>recipients</label>
+					<label>carbon copy</label>
+					<label>date</label>
+					<label>folder</label>
+					<label>server</label>
+				</vbox>
+			</hbox>
+			<hbox flex="1">
+				<vbox>
+					<label>%p</label>
+					<label>%b</label>
+					<label>%k</label>
+					<label>%l</label>
+					<label>%m</label>
+					<label>%%</label>
+				</vbox>
+				<vbox>
+					<label>priority</label>
+					<label>message size in bytes</label>
+					<label>message size in kilobytes</label>
+					<label>line count</label>
+					<label>message ID</label>
+					<label>%</label>
+				</vbox>
+			</hbox>
+		</hbox>
+	</groupbox>
+</dialog>

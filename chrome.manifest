@@ -1,0 +1,3 @@
+content growlnotify chrome/content/
+skin growlnotify default skin/
+overlay chrome://messenger/content/hiddenWindow.xul chrome://growlnotify/content/growlnotify.xul
