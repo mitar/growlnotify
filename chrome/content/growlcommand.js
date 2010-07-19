@@ -15,7 +15,7 @@ function growlnotifyNotify(titleFormat, messageFormat, subject, author, recipien
 		message = uc.ConvertFromUnicode(message) + uc.Finish();
 		
 		var process = Components.classes["@mozilla.org/process/util;1"].createInstance(Components.interfaces.nsIProcess);
-		var args = ["-n", "Thunderbird", "-a", "Thunderbird", "-t", title, "-m", message];
+		var args = ["-n", "Thunderbird", "-a", "Thunderbird.app", "-t", title, "-m", message];
 		
 		growlnotifyDebug("initializing growlnotify process");
 		

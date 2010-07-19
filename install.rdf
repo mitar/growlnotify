@@ -3,7 +3,7 @@
 	<Description about="urn:mozilla:install-manifest">
 		<em:id>{9935cbe6-a9b7-4f2e-8829-c433da75d66f}</em:id>
 		<em:name>Growl New Message Notification</em:name>
-		<em:version>0.4</em:version>
+		<em:version>0.4.1</em:version>
 		<em:description>Displays a notification using Growl when a new message is received.</em:description>
 		<em:iconURL>chrome://growlnotify/skin/icon.png</em:iconURL>
 		<em:optionsURL>chrome://growlnotify/content/growloptions.xul</em:optionsURL>
