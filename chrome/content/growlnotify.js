@@ -15,7 +15,7 @@ window.addEventListener("load", growlnotifyInit, true);
 
 var growlnotifyListener = {
 	OnItemAdded: function(parentItem, item) {
-		var prefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch);
+		var prefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
 		
 		var header = item.QueryInterface(Components.interfaces.nsIMsgDBHdr);
 		var folder = header.folder.QueryInterface(Components.interfaces.nsIMsgFolder);
@@ -23,7 +23,12 @@ var growlnotifyListener = {
 		growlnotifyDebug("message added to the \"" + folder.prettyName + "\" folder");
 		
 		// Translated from nsImapMailFolder.cpp
-		var checkAllFolders = prefs.getBoolPref("mail.check_all_imap_folders_for_new");
+		try {
+			var checkAllFolders = prefs.getBoolPref("mail.check_all_imap_folders_for_new");
+		}
+		catch (err) {
+			var checkAllFolders = false;
+		}
 		var checkThisFolder = ((checkAllFolders && !(folder.flags & (GROWLNOTIFY_MSG_FOLDER_FLAG_TRASH | GROWLNOTIFY_MSG_FOLDER_FLAG_JUNK | GROWLNOTIFY_MSG_FOLDER_FLAG_SENTMAIL | GROWLNOTIFY_MSG_FOLDER_FLAG_IMAP_NOSELECT))) || (folder.flags & (GROWLNOTIFY_MSG_FOLDER_FLAG_CHECK_NEW | GROWLNOTIFY_MSG_FOLDER_FLAG_INBOX)));
 		
 		growlnotifyDebug("\"mail.check_all_imap_folders_for_new\": " + (checkAllFolders ? "true" : "false"));

@@ -15,7 +15,7 @@ function growlnotifyNotify(titleFormat, messageFormat, subject, author, recipien
 		message = uc.ConvertFromUnicode(message) + uc.Finish();
 		
 		var process = Components.classes["@mozilla.org/process/util;1"].createInstance(Components.interfaces.nsIProcess);
-		var args = ["-n", "Thunderbird", "-a", "Thunderbird.app", "-t", title, "-m", message];
+		var args = ["-n", "Thunderbird (add-on)", "-a", "Thunderbird.app", "-t", title, "-m", message];
 		
 		growlnotifyDebug("initializing growlnotify process");
 		
@@ -36,7 +36,7 @@ function growlnotifyNotify(titleFormat, messageFormat, subject, author, recipien
 function growlnotifyFormat(format, subject, author, recipients, carbonCopy, date, folder, server, priority, messageSize, lineCount, messageID) {
 	var formatSplit = format.split(/(%[sarcdfvpbklm%])/);
 	
-	for (i = 0; i < formatSplit.length; i++) {
+	for (var i = 0; i < formatSplit.length; i++) {
 		switch (formatSplit[i]) {
 			case "%s":
 				formatSplit[i] = subject;
